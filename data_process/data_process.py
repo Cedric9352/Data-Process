@@ -1,8 +1,18 @@
 # coding:utf-8
 import re
 import os
+import sys
 
-current_path = os.getcwd()
+
+def cur_file_dir():
+    path = sys.path[0]
+
+    if os.path.isdir(path):
+        return path
+    elif os.path.isfile(path):
+        return os.path.dirname(os.path.dirname(path))
+
+current_path = cur_file_dir()
 list_dir = os.listdir(current_path)
 dir_status = False
 
@@ -55,7 +65,7 @@ for data_file in list_dir:
     for eachKey in data_wave:
         f_write.write("%s\t%f\n" % (eachKey, data_wave[eachKey]))
 
-    f_write.write("-"*20+"\n")
+    f_write.write(" "*20+"\n")
 
     for eachTuple in data_dir:
         f_write.write("%f\t%f\n" % (float(eachTuple[0]), eachTuple[1]))
