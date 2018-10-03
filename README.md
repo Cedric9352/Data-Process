@@ -1,2 +1,2 @@
 # Data-Process
-Marine hydrology data process (including: wave, direction, ect.)
+Marine hydrology data process (including: wave, direction, etc.)
